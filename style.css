@@ -1,0 +1,120 @@
+#images-container {
+    display: flex;
+    justify-content: center;  /* Centraliza horizontalmente */
+    align-items: center;      /* Centraliza verticalmente dentro da div */
+    flex-wrap: wrap;          /* Quebra linha se a tela for pequena */
+    gap: 20px;                /* Espaço entre as imagens */
+    margin-bottom: 20px;      /* Espaço embaixo do container */
+}
+
+.foto {
+    width: 90vw;             /* Largura máxima para celular */
+    max-width: 300px;        /* Largura máxima no desktop */
+    border-radius: 15px;     /* Bordas arredondadas */
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    transition: transform 0.3s;
+}
+
+.foto:hover {
+    transform: scale(1.05);  /* Pequeno zoom ao passar o mouse */
+}
+
+/* Essa classe garante que a caixa comece invisível */
+.escondida {
+  display: none;
+}
+
+/* Essa é a classe que o JS vai adicionar para mostrar a caixa */
+.mostrar {
+  display: block; 
+}
+
+/* Um visual básico para a sua box ficar bonita */
+#caixaDeEntrada {
+  margin-top: 15px;
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  width: 300px;
+  background-color: #f9f9f9;
+}
+
+textarea {
+  width: 100%;
+  height: 80px;
+  margin-bottom: 10px;
+}
+
+.mural {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.container-foto {
+  position: relative; /* Permite que a box de texto fique em cima */
+  width: 300px;
+  height: 400px;
+  overflow: hidden; /* Corta a imagem quando ela der zoom */
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+.foto-zoom {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease; /* Faz o zoom ser suave */
+}
+
+/* Efeito de Zoom ao passar o mouse */
+.container-foto:hover .foto-zoom {
+  transform: scale(1.2);
+}
+
+/* Estilo da Box de Texto (escondida por padrão) */
+.box-texto {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6); /* Fundo escuro semitransparente */
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+  opacity: 0; /* Começa invisível */
+  transition: opacity 0.3s ease;
+  pointer-events: none; /* Deixa o clique passar para o container se necessário */
+}
+
+/* Classe que o JS vai ativar */
+.box-texto.ativo {
+  opacity: 1;
+}
+
+.back {
+    background: #ff4d6d;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: rotateY(180deg);
+    
+    /* AJUSTES PARA TEXTOS LONGOS */
+    font-size: 1.2rem;       /* Reduzido para caber o parágrafo inteiro */
+    line-height: 1.4;        /* Dá respiro entre as linhas da Great Vibes */
+    text-align: center;
+    padding: 25px;           /* Margem interna para o texto não encostar na borda */
+    box-sizing: border-box;
+    overflow-y: auto;        /* Adiciona um scroll discreto se o texto for maior que o card */
+}
+
+/* Opcional: Ajuste específico para o parágrafo dentro do verso */
+.back p {
+    margin: 0;
+    filter: drop-shadow(0 2px 2px rgba(0,0,0,0.1)); /* Leve sombra para leitura */
+}
